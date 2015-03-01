@@ -1,0 +1,38 @@
+﻿@model Anthyme.CanvasDraw.Models.Draw
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<script src="@Url.Content("~/Scripts/Models.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/DrawEngine.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/Home/Details.js")" type="text/javascript"></script>
+
+<fieldset>
+    <legend>Draw</legend>
+
+    <div class="display-label">Name</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Name)
+        @Html.HiddenFor(model => model.Data)
+        @Html.HiddenFor(model => model.Key)
+    </div>
+
+    <div class="display-label">Data</div>
+    <div class="display-field">
+        <canvas id="surface" width="400" height="300" style=" border: black 2px solid;"></canvas>
+    </div>
+
+    <div class="display-label">Key</div>
+    <div class="display-field">
+        <input id="keyInput" type="text"/>
+        <span id="validTip">Well done !</span>
+    </div>
+        
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
